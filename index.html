@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GÃ©nÃ©rateur FR - Lettres Miracle S (Explorateurs du Ciel)</title>
+  <meta name="description" content="GÃ©nÃ©rateur franÃ§ais de Lettres Miracle S pour PokÃ©mon Donjon MystÃ¨re : Explorateurs du Ciel, avec mode Europe, MÃ©mo mystÃ¨re et Lettres de dÃ©fi.">
+  <link rel="stylesheet" href="style.css?v=20260314aj">
+  <script src="lmutils.js?v=20260314aj"></script>
+  <script src="lm.js?v=20260314aj"></script>
+  <script src="lmgenerate.js?v=20260314aj"></script>
+  <script src="ciel_donjon.js?v=20260314aj"></script>
+  <script src="ciel_objet.js?v=20260314aj"></script>
+  <script src="ciel_poke.js?v=20260314aj"></script>
+  <script src="memo_gallery.js?v=20260314aj"></script>
+  <script src="item_title_map.js?v=20260314aj"></script>
+  <script src="item_icon_map.js?v=20260314aj"></script>
+  <script src="pokemon_name_map.js?v=20260314aj"></script>
+  <script src="pokemon_sprite_map.js?v=20260314aj"></script>
+  <script src="dungeon_name_map.js?v=20260314aj"></script>
+  <script src="dungeon_floor_map.js?v=20260314aj"></script>
+  <script src="lang/locales.js?v=20260314aj"></script>
+  <script src="lang/fr.js?v=20260314aj"></script>
+  <script src="lang/en.js?v=20260314aj"></script>
+  <script src="app.js?v=20260314aj" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="hero card">
+      <div>
+        <p class="eyebrow">PokÃ©mon Donjon MystÃ¨re : Explorateurs du Ciel</p>
+        <h1>GÃ©nÃ©rateur FR de Lettres Miracle S</h1>
+        <p class="lead">Version propre en franÃ§ais, avec gÃ©nÃ©ration pour la <strong>version europÃ©enne</strong>, les <strong>MÃ©mo mystÃ¨re</strong> et les <strong>Lettres de dÃ©fi</strong>.</p>
+      </div>
+      <div class="hero-badges">
+        <div class="lang-picker" id="languagePicker">
+          <button type="button" class="lang-picker-trigger" id="languagePickerToggle" aria-expanded="false" aria-controls="languagePickerMenu">
+            <img id="languagePickerFlag" class="lang-picker-flag" src="assets/flags/fr.svg" alt="">
+            <span class="lang-picker-label" id="languagePickerLabel">FranÃ§ais</span>
+            <span class="lang-picker-caret" aria-hidden="true"></span>
+          </button>
+          <div class="lang-picker-menu hidden" id="languagePickerMenu" role="listbox" aria-label="Language menu"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="card presets">
+      <h2>AccÃ¨s rapide</h2>
+      <div class="preset-grid">
+        <button type="button" class="preset-btn" data-preset="standard">Mission normale</button>
+        <button type="button" class="preset-btn" data-preset="memo">MÃ©mo mystÃ¨re</button>
+        <button type="button" class="preset-btn" data-preset="mewtwo">Lettre de dÃ©fi - Mewtwo</button>
+        <button type="button" class="preset-btn" data-preset="entei">Lettre de dÃ©fi - Entei</button>
+        <button type="button" class="preset-btn" data-preset="raikou">Lettre de dÃ©fi - Raikou</button>
+        <button type="button" class="preset-btn" data-preset="suicune">Lettre de dÃ©fi - Suicune</button>
+        <button type="button" class="preset-btn" data-preset="jirachi">Lettre de dÃ©fi - Jirachi</button>
+      </div>
+      <p class="hint">Les lettres de dÃ©fi et les mÃ©mos mystÃ¨re sont des types exclusifs Ã  Explorateurs du Ciel.</p>
+    </section>
+
+    <form id="genForm" class="form-grid card" autocomplete="off">
+      <section>
+        <h2>Mission</h2>
+        <div class="field">
+          <label for="missionTypeBox">Type de mission</label>
+          <div class="inline-row">
+            <select name="missionTypeBox" id="missionTypeBox"></select>
+            <span id="subType" class="subtype-wrap hidden"><select name="missionSubTypeBox" id="missionSubTypeBox"></select></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="dungeonSearch">Donjon</label>
+          <input id="dungeonSearch" type="search" class="searchbox" placeholder="Chercher un donjon..." data-target="dungeonBox">
+          <select id="dungeonBox" name="dungeonBox"></select>
+        </div>
+
+        <div class="field small-field">
+          <label for="floor">Ã‰tage</label>
+          <input id="floor" name="floor" type="number" min="1" max="99" value="1">
+          <p class="hint" id="floorLimitHint">Etages disponibles : 1 a 99 pour ce donjon.</p>
+        </div>
+
+        <div class="field memo-selector hidden" id="memoSelectorWrap">
+          <label for="memoPreset">SÃ©lecteur MÃ©mo mystÃ¨re</label>
+          <div class="memo-picker" id="memoPresetPicker">
+            <select id="memoPreset" name="memoPreset" class="sr-only" tabindex="-1" aria-hidden="true"></select>
+            <button type="button" class="memo-picker-trigger" id="memoPresetToggle" aria-expanded="false" aria-controls="memoPresetMenu">
+              <span class="memo-picker-copy">
+                <span class="memo-picker-title" id="memoPresetTitle">Automatique</span>
+                <span class="memo-picker-subtitle" id="memoPresetSubtitle">Aucune variante forcÃ©e</span>
+              </span>
+              <span class="memo-picker-caret" aria-hidden="true"></span>
+            </button>
+            <div class="memo-picker-panel hidden" id="memoPresetMenu">
+              <div class="memo-picker-options" id="memoPresetOptions"></div>
+              <aside class="memo-picker-preview">
+                <p class="memo-picker-preview-badge" id="memoPresetPreviewBadge">Automatique</p>
+                <h3 class="memo-picker-preview-title" id="memoPresetPreviewTitle">Automatique</h3>
+                <p class="memo-picker-preview-text" id="memoPresetPreviewText">Le gÃ©nÃ©rateur choisit une variante automatiquement.</p>
+                <p class="memo-warning hidden" id="memoPresetPreviewWarning"></p>
+                <div class="memo-map memo-map-card" id="memoPresetPreviewMap">Choisis une variante</div>
+                <div class="memo-feature-list memo-picker-preview-features" id="memoPresetPreviewFeatures"></div>
+              </aside>
+            </div>
+          </div>
+          <p class="hint">Choisit directement la variante interne du MÃ©mo mystÃ¨re. "Automatique" laisse le gÃ©nÃ©rateur en alÃ©atoire.</p>
+        </div>
+
+        <details class="advanced-panel">
+          <summary>Options expertes</summary>
+          <div class="field">
+            <label for="flavorText">Type de texte</label>
+            <input id="flavorText" name="flavorText" type="number" placeholder="Automatique si vide">
+          </div>
+          <div class="field">
+            <label for="specialFloor">Ã‰tage spÃ©cial</label>
+            <input id="specialFloor" name="specialFloor" type="number" placeholder="Automatique si vide">
+            <p class="hint">Le sÃ©lecteur ci-dessus remplit ce champ automatiquement pour les MÃ©mos mystÃ¨re. Les salles hors de lâ€™intervalle 115 Ã  144 sont considÃ©rÃ©es comme inconnues et la quÃªte risque de ne pas sâ€™y valider.</p>
+          </div>
+        </details>
+      </section>
+
+      <section>
+        <h2>Pokemon et objet cible</h2>
+        <div class="field" id="clientField">
+          <label for="clientSearch">Client</label>
+          <div class="field-control-group">
+            <input id="clientSearch" type="search" class="searchbox" placeholder="Chercher un Pokemon..." data-target="clientBox">
+            <div class="stack-on-mobile">
+              <select name="clientBox" id="clientBox"></select>
+              <label class="checkbox-inline"><input type="checkbox" name="clientF" id="clientF" value="600"> Femelle</label>
+            </div>
+          </div>
+          <div class="entity-preview" id="clientPreview"></div>
+        </div>
+
+        <div class="field" id="targetField">
+          <label for="targetSearch">Cible</label>
+          <div class="field-control-group">
+            <input id="targetSearch" type="search" class="searchbox" placeholder="Chercher une cible..." data-target="targetBox">
+            <div class="stack-on-mobile">
+              <select name="targetBox" id="targetBox"></select>
+              <label class="checkbox-inline"><input type="checkbox" name="targetF" id="targetF" value="600"> Femelle</label>
+            </div>
+          </div>
+          <div class="entity-preview" id="targetPreview"></div>
+        </div>
+
+        <div class="field" id="target2">
+          <label for="target2Search">Cible supplementaire</label>
+          <div class="field-control-group">
+            <input id="target2Search" type="search" class="searchbox" placeholder="Chercher une cible supplementaire..." data-target="target2Box">
+            <div class="stack-on-mobile">
+              <select name="target2Box" id="target2Box"></select>
+              <label class="checkbox-inline"><input type="checkbox" name="target2F" id="target2F" value="600"> Femelle</label>
+            </div>
+          </div>
+          <div class="entity-preview" id="target2Preview"></div>
+        </div>
+
+        <div class="field" id="targetItemField">
+          <label for="targetItemSearch">Objet cible</label>
+          <div class="field-control-group">
+            <input id="targetItemSearch" type="search" class="searchbox" placeholder="Chercher un objet..." data-target="targetItemBox">
+            <select name="targetItemBox" id="targetItemBox"></select>
+          </div>
+          <div class="entity-preview" id="targetItemPreview"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Recompense et region</h2>
+        <div class="field" id="rewardTypeField">
+          <label for="rewardTypeBox">Type de recompense</label>
+          <select name="rewardTypeBox" id="rewardTypeBox">
+            <option value="0">Argent</option>
+            <option value="1">Argent + ??? (objet en recompense)</option>
+            <option value="2">Objet</option>
+            <option value="3" selected>Objet + ??? (aleatoire)</option>
+            <option value="4">??? (objet en recompense)</option>
+            <option value="5">??? (oeuf)</option>
+            <option value="6">??? (recrutement du client)</option>
+          </select>
+        </div>
+
+        <div class="field" id="rewardItemField">
+          <label for="rewardItemSearch">Objet en recompense</label>
+          <div class="field-control-group">
+            <input id="rewardItemSearch" type="search" class="searchbox" placeholder="Chercher un objet de recompense..." data-target="rewardItemBox">
+            <select name="rewardItemBox" id="rewardItemBox"></select>
+          </div>
+          <div class="entity-preview" id="rewardItemPreview"></div>
+        </div>
+
+        <div class="field toggle-field">
+          <label class="toggle">
+            <input type="checkbox" name="useEUswap" id="useEUswap" value="1" checked>
+            <span>Generer pour la version europeenne</span>
+          </label>
+          <p class="hint">Decoche pour les versions US/AUS. Les codes Sky ne sont pas compatibles entre regions.</p>
+        </div>
+
+        <div class="summary-box" id="summaryBox">
+          <h3>Resume</h3>
+          <p id="summaryText">Choisis une mission pour voir le resume.</p>
+        </div>
+      </section>
+    </form>
+
+    <section class="card memo-visuals hidden" id="memoVisuals">
+      <div class="memo-visuals-header">
+        <div>
+          <p class="eyebrow">Memo tresor</p>
+          <h2>Cartographie des salles</h2>
+          <p class="lead" id="memoVisualLead">Cette section affiche les formes exactes relevees sur la wiki japonaise des Memos tresor.</p>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://wiki.grovyle.net/pokedun3/?%E3%81%8A%E3%81%9F%E3%81%8B%E3%82%89%E3%83%A1%E3%83%A2#content_1_2" target="_blank" rel="noopener">Wiki JP : formes</a>
+          <a class="source-link" href="https://wiki.grovyle.net/pokedun3/?%E3%81%B5%E3%81%97%E3%81%8E%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%ABS/%E3%81%8A%E3%81%9F%E3%81%8B%E3%82%89%E3%83%A1%E3%83%A2#content_1_1" target="_blank" rel="noopener">Wiki JP : codes</a>
+        </div>
+      </div>
+
+      <article class="memo-spotlight" id="memoSpotlight">
+        <div id="memoSpotlightMap" class="memo-map memo-map-large" aria-label="Carte de salle memo tresor"></div>
+        <div class="memo-spotlight-copy">
+          <p class="badge small-badge" id="memoSpotlightBadge">Source japonaise</p>
+          <h3 id="memoSpotlightTitle">Salle memo tresor</h3>
+          <p id="memoSpotlightDescription">Choisis une variante de memo pour afficher sa forme exacte quand la source la documente.</p>
+          <p class="memo-meta-line" id="memoSpotlightMeta"></p>
+          <p class="memo-warning hidden" id="memoSpotlightWarning"></p>
+          <p class="memo-meta-line" id="memoSpotlightLocation"></p>
+          <pre class="memo-source-code hidden" id="memoSpotlightCode"></pre>
+          <div class="memo-feature-list" id="memoSpotlightFeatures"></div>
+        </div>
+      </article>
+
+      <div class="memo-gallery-grid" id="memoGalleryGrid"></div>
+      <p class="hint">Les formes 115 Ã  144 correspondent aux 30 layouts Treasure Memo documentÃ©s.</p>
+    </section>
+
+    <section class="card result-card">
+      <div class="result-header">
+        <h2>Code genere</h2>
+        <div class="result-actions">
+          <button type="button" id="generateBtn" class="primary">Generer</button>
+          <button type="button" id="copyPrettyBtn">Copier</button>
+          <button type="button" id="copyCompactBtn">Copier sans espaces</button>
+        </div>
+      </div>
+      <textarea id="outputbox" rows="3" readonly placeholder="Le code apparaÃ®tra ici..."></textarea>
+      <div class="field compact-output">
+        <label for="compactOutput">Version compacte</label>
+        <input id="compactOutput" type="text" readonly>
+      </div>
+      <p id="statusLine" class="hint">Astuce : le mode Europe est dÃ©jÃ  activÃ© par dÃ©faut.</p>
+    </section>
+
+    <section class="card project-warning">
+      <p class="eyebrow">Avertissement</p>
+      <h2>Contenu Ã  relire avec prudence</h2>
+      <p class="lead">Des textes, libellÃ©s, descriptions, rapprochements et annotations ont Ã©tÃ© ajoutÃ©s automatiquement. De nombreuses erreurs, approximations ou mauvaises interprÃ©tations peuvent encore Ãªtre prÃ©sentes.</p>
+      <p class="hint">Le site, la cartographie MÃ©mo trÃ©sor et plusieurs aides visuelles doivent Ãªtre traitÃ©s comme un outil communautaire en cours de vÃ©rification, pas comme une rÃ©fÃ©rence parfaite.</p>
+    </section>
+
+    <section class="card notes">
+      <h2>Notes utiles</h2>
+      <ul>
+        <li><strong>MÃ©mo mystÃ¨re</strong> = mission de type <em>Trouver le trÃ©sor</em>.</li>
+        <li><strong>Lettres de dÃ©fi</strong> = missions spÃ©ciales Sky avec combat de boss.</li>
+        <li>Certaines combinaisons restent rejetÃ©es par le jeu, mÃªme si un code peut Ãªtre construit.</li>
+        <li>Sur console rÃ©elle, quelques combinaisons exotiques peuvent causer un freeze ; reste sur des rÃ©glages cohÃ©rents.</li>
+      </ul>
+    </section>
+
+    <details class="card sources-panel">
+      <summary>CrÃ©dits et sources</summary>
+      <div class="sources-panel-content">
+        <section class="sources-block">
+          <h3>CrÃ©dits</h3>
+          <p>Site conÃ§u par <strong>_RedCoal_</strong> avec <strong>GPT-5.4</strong>, puis affinÃ© Ã  partir de tests, captures et vÃ©rifications en jeu.</p>
+          <p>Une partie importante du site, de l'interface et des textes a Ã©tÃ© produite avec l'aide de <strong>GPT-5.4</strong>. Des erreurs peuvent Ãªtre prÃ©sentes dans les textes, les labels, les associations d'images et certaines interprÃ©tations.</p>
+        </section>
+
+        <section class="sources-block">
+          <h3>Base du gÃ©nÃ©rateur</h3>
+          <ul class="source-list">
+            <li><a href="https://github.com/SombrAbsol/SombrAbsol.github.io" target="_blank" rel="noopener">SombrAbsol.github.io (GitHub)</a></li>
+            <li><a href="https://sombrabsol.github.io/" target="_blank" rel="noopener">SombrAbsol.github.io</a></li>
+            <li><a href="https://sombrabsol.github.io/EdC/lmiracles.html" target="_blank" rel="noopener">Version historique Explorateurs du Ciel</a></li>
+          </ul>
+        </section>
+
+        <section class="sources-block">
+          <h3>Documentation Wonder Mail et PMD</h3>
+          <ul class="source-list">
+            <li><a href="https://bulbapedia.bulbagarden.net/wiki/Wonder_Mail" target="_blank" rel="noopener">Bulbapedia : Wonder Mail</a></li>
+            <li><a href="https://bulbapedia.bulbagarden.net/wiki/Job_%28Mystery_Dungeon%29" target="_blank" rel="noopener">Bulbapedia : Job (Mystery Dungeon)</a></li>
+            <li><a href="https://bulbapedia.bulbagarden.net/wiki/Pokemon_Mystery_Dungeon%3A_Explorers_of_the_Sky" target="_blank" rel="noopener">Bulbapedia : Explorers of the Sky</a></li>
+            <li><a href="https://bulbapedia.bulbagarden.net/wiki/List_of_North_American_and_Australian_Wonder_Mail_S_distributions_in_Pok%C3%A9mon_Mystery_Dungeon%3A_Explorers_of_Sky" target="_blank" rel="noopener">Bulbapedia : distributions Wonder Mail S US/AUS</a></li>
+            <li><a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Wonder_Mail_distributions_in_Pok%C3%A9mon_Mystery_Dungeon%3A_Explorers_of_Time_and_Explorers_of_Darkness" target="_blank" rel="noopener">Bulbapedia : distributions Explorers of Time/Darkness</a></li>
+            <li><a href="https://the-warp-point.blogspot.com/2009/12/pokemon-mystery-dungeon-explorers-of.html" target="_blank" rel="noopener">The Warp Point : references Wonder Mail / Sky</a></li>
+          </ul>
+        </section>
+
+        <section class="sources-block">
+          <h3>MÃ©mo trÃ©sor et sources japonaises</h3>
+          <ul class="source-list">
+            <li><a href="https://wiki.grovyle.net/pokedun3/?%E3%81%8A%E3%81%9F%E3%81%8B%E3%82%89%E3%83%A1%E3%83%A2#content_1_2" target="_blank" rel="noopener">Wiki Grovyle JP : Memo tresor</a></li>
+            <li><a href="https://baumifstory.blog.fc2.com/blog-entry-453.html" target="_blank" rel="noopener">Baumifstory blog : captures et retours joueur</a></li>
+          </ul>
+        </section>
+
+        <section class="sources-block">
+          <h3>Images et donnÃ©es auxiliaires</h3>
+          <ul class="source-list">
+            <li><a href="https://mysterydungeonwiki.com/wiki/Explorers_of_Sky:List_of_Items_by_ID" target="_blank" rel="noopener">Mystery Dungeon Wiki : liste des items EoS</a></li>
+            <li><a href="https://wiki.pmdo.pmdcollab.org/wiki/Category:Item_sprites" target="_blank" rel="noopener">PMDO Wiki : sprites d'items</a></li>
+            <li><a href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" target="_blank" rel="noopener">PokeAPI sprites : apercus Pokemon</a></li>
+          </ul>
+        </section>
+      </div>
+    </details>
+
+    <footer class="footer">
+      <p>Interface francaise refaite a partir d'un backend historique de generation Wonder Mail S, enrichie avec des ajouts communautaires, des recoupements externes et des contenus assistes par IA.</p>
+    </footer>
+  </main>
+</body>
+</html>
+
