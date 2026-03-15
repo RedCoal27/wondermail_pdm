@@ -15,7 +15,7 @@ function onReady(fn) {
 }
 
 const LANGUAGE_STORAGE_KEY = 'wmsky-language';
-let currentLanguage = 'fr';
+let currentLanguage = 'en';
 
 function getLocaleRegistry() {
   return (window.WMSkyLocaleData && window.WMSkyLocaleData.locales) || {};
@@ -32,8 +32,19 @@ function getAvailableLanguages() {
 
 function getDefaultLanguage() {
   const languages = getAvailableLanguages();
+  if (languages.includes('en')) return 'en';
   if (languages.includes('fr')) return 'fr';
-  return languages[0] || 'fr';
+  return languages[0] || 'en';
+}
+
+function getUrlLanguage() {
+  try {
+    const params = new URLSearchParams(window.location.search || '');
+    const raw = (params.get('lang') || params.get('locale') || params.get('language') || '').trim().toLowerCase();
+    return raw || null;
+  } catch (e) {
+    return null;
+  }
 }
 
 function getLocale(code) {
@@ -3332,8 +3343,13 @@ function applyPreset(kind) {
 }
 
 onReady(() => {
+  const urlLanguage = getUrlLanguage();
   const storedLanguage = getStoredLanguage();
-  currentLanguage = getAvailableLanguages().includes(storedLanguage) ? storedLanguage : getDefaultLanguage();
+  if (getAvailableLanguages().includes(urlLanguage)) {
+    currentLanguage = urlLanguage;
+  } else {
+    currentLanguage = getAvailableLanguages().includes(storedLanguage) ? storedLanguage : getDefaultLanguage();
+  }
 
   const picker = document.getElementById('languagePicker');
   const toggle = document.getElementById('languagePickerToggle');
