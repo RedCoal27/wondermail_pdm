@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GÃ©nÃ©rateur FR - Lettres Miracle S (Explorateurs du Ciel)</title>
   <meta name="description" content="GÃ©nÃ©rateur franÃ§ais de Lettres Miracle S pour PokÃ©mon Donjon MystÃ¨re : Explorateurs du Ciel, avec mode Europe, MÃ©mo mystÃ¨re et Lettres de dÃ©fi.">
-  <link rel="stylesheet" href="style.css?v=20260314aj">
-  <script src="lmutils.js?v=20260314aj"></script>
-  <script src="lm.js?v=20260314aj"></script>
-  <script src="lmgenerate.js?v=20260314aj"></script>
-  <script src="ciel_donjon.js?v=20260314aj"></script>
-  <script src="ciel_objet.js?v=20260314aj"></script>
-  <script src="ciel_poke.js?v=20260314aj"></script>
-  <script src="memo_gallery.js?v=20260314aj"></script>
-  <script src="item_title_map.js?v=20260314aj"></script>
-  <script src="item_icon_map.js?v=20260314aj"></script>
-  <script src="pokemon_name_map.js?v=20260314aj"></script>
-  <script src="pokemon_sprite_map.js?v=20260314aj"></script>
-  <script src="dungeon_name_map.js?v=20260314aj"></script>
-  <script src="dungeon_floor_map.js?v=20260314aj"></script>
-  <script src="lang/locales.js?v=20260314aj"></script>
-  <script src="lang/fr.js?v=20260314aj"></script>
-  <script src="lang/en.js?v=20260314aj"></script>
-  <script src="app.js?v=20260314aj" defer></script>
+  <link rel="stylesheet" href="style.css?v=20260315d">
+  <script src="lmutils.js?v=20260315d"></script>
+  <script src="lm.js?v=20260315d"></script>
+  <script src="lmgenerate.js?v=20260315d"></script>
+  <script src="ciel_donjon.js?v=20260315d"></script>
+  <script src="ciel_objet.js?v=20260315d"></script>
+  <script src="ciel_poke.js?v=20260315d"></script>
+  <script src="memo_gallery.js?v=20260315d"></script>
+  <script src="item_title_map.js?v=20260315d"></script>
+  <script src="item_icon_map.js?v=20260315d"></script>
+  <script src="pokemon_name_map.js?v=20260315d"></script>
+  <script src="pokemon_sprite_map.js?v=20260315d"></script>
+  <script src="dungeon_name_map.js?v=20260315d"></script>
+  <script src="dungeon_floor_map.js?v=20260315d"></script>
+  <script src="lang/locales.js?v=20260315d"></script>
+  <script src="lang/fr.js?v=20260315d"></script>
+  <script src="lang/en.js?v=20260315d"></script>
+  <script src="app.js?v=20260315d" defer></script>
 </head>
 <body>
   <main class="page">
@@ -109,10 +109,7 @@
 
         <details class="advanced-panel">
           <summary>Options expertes</summary>
-          <div class="field">
-            <label for="flavorText">Type de texte</label>
-            <input id="flavorText" name="flavorText" type="number" placeholder="Automatique si vide">
-          </div>
+          <input id="flavorText" name="flavorText" type="hidden" value="">
           <div class="field">
             <label for="specialFloor">Ã‰tage spÃ©cial</label>
             <input id="specialFloor" name="specialFloor" type="number" placeholder="Automatique si vide">
@@ -240,6 +237,13 @@
     </section>
 
     <section class="card result-card">
+      <div class="field import-code-field">
+        <label for="importCode">Lire un code existant</label>
+        <textarea id="importCode" rows="3" placeholder="Colle un code Wonder Mail S ici..."></textarea>
+        <div class="result-actions import-actions">
+          <button type="button" id="importCodeBtn">Lire ce code</button>
+        </div>
+      </div>
       <div class="result-header">
         <h2>Code genere</h2>
         <div class="result-actions">
@@ -280,6 +284,7 @@
           <h3>CrÃ©dits</h3>
           <p>Site conÃ§u par <strong>_RedCoal_</strong> avec <strong>GPT-5.4</strong>, puis affinÃ© Ã  partir de tests, captures et vÃ©rifications en jeu.</p>
           <p>Une partie importante du site, de l'interface et des textes a Ã©tÃ© produite avec l'aide de <strong>GPT-5.4</strong>. Des erreurs peuvent Ãªtre prÃ©sentes dans les textes, les labels, les associations d'images et certaines interprÃ©tations.</p>
+          <p>J'ai fait ce site car je trouvais l'interface des autres pas trÃ¨s visuelle, et le seul site capable de gÃ©nÃ©rer des salles MÃ©mo trÃ©sor Ã©tait un site japonais peu comprÃ©hensible. J'ai montÃ© celui-ci en un aprÃ¨s-midi avec Codex et je trouve qu'il fait bien le taff. Une partie du code provient probablement de projets dÃ©jÃ  existants ; les sources que Codex a utilisÃ©es sont listÃ©es ci-dessous.</p>
         </section>
 
         <section class="sources-block">
@@ -300,6 +305,7 @@
             <li><a href="https://bulbapedia.bulbagarden.net/wiki/List_of_North_American_and_Australian_Wonder_Mail_S_distributions_in_Pok%C3%A9mon_Mystery_Dungeon%3A_Explorers_of_Sky" target="_blank" rel="noopener">Bulbapedia : distributions Wonder Mail S US/AUS</a></li>
             <li><a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Wonder_Mail_distributions_in_Pok%C3%A9mon_Mystery_Dungeon%3A_Explorers_of_Time_and_Explorers_of_Darkness" target="_blank" rel="noopener">Bulbapedia : distributions Explorers of Time/Darkness</a></li>
             <li><a href="https://the-warp-point.blogspot.com/2009/12/pokemon-mystery-dungeon-explorers-of.html" target="_blank" rel="noopener">The Warp Point : references Wonder Mail / Sky</a></li>
+            <li><a href="https://laioxy.github.io/wondermail/" target="_blank" rel="noopener">Lai-brary : Wonder Mail Generator</a></li>
           </ul>
         </section>
 

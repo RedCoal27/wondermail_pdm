@@ -86,6 +86,13 @@ const UI_TEXT = {
     memoHint: 'Choisit directement la variante interne du Memo mystere. "Automatique" laisse le generateur en aleatoire.',
     advancedOptions: 'Options expertes',
     flavorTextLabel: 'Type de texte',
+    flavorTextHeadLabel: 'Titre du message',
+    flavorTextBodyLabel: 'Contenu du message',
+    flavorTextHeadAuto: 'Automatique',
+    flavorTextHeadCustom: 'Personnalise',
+    flavorTextBodyAuto: 'Texte automatique du jeu',
+    flavorTextChoiceHintKnown: 'Choisis un texte de quete predefini quand il existe. "Personnalise" laisse la main sur la valeur brute.',
+    flavorTextChoiceHintNone: 'Aucun texte de quete documente ici pour ce type de mission. Utilise "Personnalise" si tu veux forcer une valeur brute.',
     flavorTextPlaceholder: 'Automatique si vide',
     specialFloorLabel: 'Etage special',
     specialFloorPlaceholder: 'Automatique si vide',
@@ -114,6 +121,9 @@ const UI_TEXT = {
     memoHintBottom: "Les formes 115 a 144 viennent directement de la wiki japonaise. La variante 114 a ete reconstituee d'apres captures joueur : salle etroite avec escalier au nord, 4 coffres luxe au centre, et une mission qui semble ne jamais se valider.",
     sourceShapes: 'Wiki JP : formes',
     sourceCodes: 'Wiki JP : codes',
+    importCodeLabel: 'Lire un code existant',
+    importCodePlaceholder: 'Colle un code Wonder Mail S ici...',
+    importCodeButton: 'Lire ce code',
     resultTitle: 'Code genere',
     generate: 'Generer',
     copy: 'Copier',
@@ -134,6 +144,7 @@ const UI_TEXT = {
     creditsTitle: 'Credits',
     creditsBody1: 'Credit a <strong>_RedCoal_</strong> pour les retours, les captures, les corrections de salles et les verifications de contenu.',
     creditsBody2: "Cette refonte et ses ajouts ont ete realises full par IA avec <strong>GPT-5.4</strong>. Des erreurs peuvent etre presentes dans les textes, les labels, les associations d'images et certaines interpretations.",
+    creditsBody3: "J'ai fait ce site car je trouvais l'interface des autres pas tres visuelle, et le seul site capable de generer des salles Memo tresor etait un site japonais peu comprehensible. J'ai monte celui-ci en un apres-midi avec Codex et je trouve qu'il fait bien le taff. Une partie du code provient probablement de projets deja existants ; les sources que Codex a utilisees sont listees ci-dessous.",
     generatorBaseTitle: 'Base du generateur',
     wonderMailDocsTitle: 'Documentation Wonder Mail et PMD',
     memoSourcesTitle: 'Memo tresor et sources japonaises',
@@ -221,6 +232,11 @@ const UI_TEXT = {
     generatedEu: 'Code genere pour la version europeenne.',
     generatedUs: 'Code genere pour la version US/AUS.',
     blockedCombination: 'Le generateur a bloque la combinaison choisie.',
+    importCodeEmpty: 'Colle d abord un code a lire.',
+    importCodeInvalid: 'Impossible de lire ce code. Verifie le format ou la region.',
+    importCodePartial: 'Code lu, mais certains champs ne correspondent pas a une mission exposee par l interface.',
+    importCodeEu: 'Code lu et formulaire rempli depuis un code europeen.',
+    importCodeUs: 'Code lu et formulaire rempli depuis un code US/AUS.',
     nothingToCopy: 'Aucun code a copier.',
     compactCopied: 'Version compacte copiee.',
     codeCopied: 'Code copie.',
@@ -250,6 +266,13 @@ const UI_TEXT = {
     memoHint: 'Directly choose the internal Treasure Memo variant. "Automatic" keeps the generator random.',
     advancedOptions: 'Advanced options',
     flavorTextLabel: 'Text type',
+    flavorTextHeadLabel: 'Message title',
+    flavorTextBodyLabel: 'Message body',
+    flavorTextHeadAuto: 'Automatic',
+    flavorTextHeadCustom: 'Custom',
+    flavorTextBodyAuto: 'Automatic in-game text',
+    flavorTextChoiceHintKnown: 'Choose a predefined quest text when available. "Custom" leaves the raw value under your control.',
+    flavorTextChoiceHintNone: 'No quest text is documented here for this mission type. Use "Custom" if you want to force a raw value.',
     flavorTextPlaceholder: 'Automatic if empty',
     specialFloorLabel: 'Special floor',
     specialFloorPlaceholder: 'Automatic if empty',
@@ -278,6 +301,9 @@ const UI_TEXT = {
     memoHintBottom: 'Shapes 115 to 144 come directly from the Japanese wiki. Variant 114 was rebuilt from player screenshots: narrow room with stairs to the north, 4 deluxe chests in the center, and a mission that appears to never validate.',
     sourceShapes: 'JP wiki: shapes',
     sourceCodes: 'JP wiki: codes',
+    importCodeLabel: 'Read an existing code',
+    importCodePlaceholder: 'Paste a Wonder Mail S code here...',
+    importCodeButton: 'Read this code',
     resultTitle: 'Generated code',
     generate: 'Generate',
     copy: 'Copy',
@@ -298,6 +324,7 @@ const UI_TEXT = {
     creditsTitle: 'Credits',
     creditsBody1: 'Credit to <strong>_RedCoal_</strong> for feedback, screenshots, room corrections, and content verification.',
     creditsBody2: 'This overhaul and its additions were made entirely by AI with <strong>GPT-5.4</strong>. Errors may still be present in texts, labels, image matching, and some interpretations.',
+    creditsBody3: 'I made this site because I found the interfaces of the other ones not very visual, and the only site that could generate Treasure Memo rooms was a Japanese site that was hard to understand. I put this one together in an afternoon with Codex, and I think it does the job well. Some of the code probably comes from existing projects; the sources Codex used are listed below.',
     generatorBaseTitle: 'Generator base',
     wonderMailDocsTitle: 'Wonder Mail and PMD references',
     memoSourcesTitle: 'Treasure Memo and Japanese sources',
@@ -385,6 +412,11 @@ const UI_TEXT = {
     generatedEu: 'Code generated for the European version.',
     generatedUs: 'Code generated for the US/AUS version.',
     blockedCombination: 'The generator blocked the selected combination.',
+    importCodeEmpty: 'Paste a code to read first.',
+    importCodeInvalid: 'Could not read this code. Check the format or region.',
+    importCodePartial: 'Code read, but some fields do not map cleanly to a mission exposed by this interface.',
+    importCodeEu: 'Code read and form filled from a European code.',
+    importCodeUs: 'Code read and form filled from a US/AUS code.',
     nothingToCopy: 'No code to copy.',
     compactCopied: 'Compact version copied.',
     codeCopied: 'Code copied.',
@@ -512,6 +544,15 @@ function setPlaceholder(selector, text) {
   if (node) node.placeholder = text;
 }
 
+function ensureSelectOption(select, value, text) {
+  if (!select) return;
+  if (setSelectByValue(select, value)) return;
+  const option = document.createElement('option');
+  option.value = String(value);
+  option.text = text;
+  select.add(option);
+}
+
 function getLocalizedPokemonName(monId) {
   const numeric = parseInt(monId, 10);
   if (!Number.isFinite(numeric)) return '-';
@@ -536,6 +577,30 @@ function findSubtypeIndex(typeIndex, label) {
   const type = WMSGenData.missionTypes[typeIndex];
   if (!type || !type.subTypes) return 0;
   return Math.max(0, type.subTypes.findIndex((entry) => entry.name === label));
+}
+
+function getMissionTypeDisplayName(typeIndex) {
+  const labels = getLocaleLabelMap('missionTypes', getCurrentLanguage());
+  return labels[typeIndex]
+    || (MISSION_TYPE_LABELS[getCurrentLanguage()] && MISSION_TYPE_LABELS[getCurrentLanguage()][typeIndex])
+    || (WMSGenData.missionTypes[typeIndex] && WMSGenData.missionTypes[typeIndex].name)
+    || `Type ${typeIndex}`;
+}
+
+function getMissionSubtypeDisplayName(typeIndex, subtypeIndex) {
+  const labels = getLocaleLabelMap('missionSubtypes', getCurrentLanguage());
+  const localized = labels[typeIndex] && labels[typeIndex][subtypeIndex];
+  if (localized) return localized;
+  if (MISSION_SUBTYPE_LABELS[getCurrentLanguage()]
+    && MISSION_SUBTYPE_LABELS[getCurrentLanguage()][typeIndex]
+    && MISSION_SUBTYPE_LABELS[getCurrentLanguage()][typeIndex][subtypeIndex]) {
+    return MISSION_SUBTYPE_LABELS[getCurrentLanguage()][typeIndex][subtypeIndex];
+  }
+  const type = WMSGenData.missionTypes[typeIndex];
+  if (type && type.subTypes && type.subTypes[subtypeIndex]) {
+    return type.subTypes[subtypeIndex].name;
+  }
+  return `Sous-type ${subtypeIndex}`;
 }
 
 function setSelectByValue(select, value) {
@@ -707,6 +772,511 @@ function syncDungeonFloorLimit() {
       ? t('floorLimitHint', { count: limit })
       : t('floorLimitUnknown');
   }
+}
+
+function scoreDecodedStruct(struct) {
+  if (!struct || typeof struct !== 'object') return -1;
+  let score = 0;
+  if (struct.mailType === 4) score += 20;
+  if (Number.isFinite(struct.missionType) && struct.missionType >= 0 && struct.missionType <= 12) score += 8;
+  if (Number.isFinite(struct.missionSpecial) && struct.missionSpecial >= 0 && struct.missionSpecial <= 15) score += 2;
+  if (Number.isFinite(struct.rewardType) && struct.rewardType >= 0 && struct.rewardType <= 6) score += 4;
+  if (Number.isFinite(struct.floor) && struct.floor >= 1 && struct.floor <= 99) score += 2;
+  if (window.WMSkyDungeon && Object.prototype.hasOwnProperty.call(window.WMSkyDungeon, struct.dungeon)) score += 3;
+  if (Number.isFinite(struct.client) && struct.client > 0 && struct.client < 1200) score += 1;
+  if (Number.isFinite(struct.target) && struct.target > 0 && struct.target < 1200) score += 1;
+  return score;
+}
+
+function decodeWonderMailCandidate(code, useEuSwap) {
+  try {
+    const clean = WMSParser.sanitize(code || '');
+    if (clean.length !== 34) return null;
+    const unscrambled = WMSParser.unscrambleString(clean, useEuSwap ? WMSParser.byteSwapEU : WMSParser.byteSwap);
+    const encryptedBits = WMSParser.bytesToBits(unscrambled);
+    if (encryptedBits.length !== 170) return null;
+    const decryptedBits = WMSParser.decryptBitStream(encryptedBits, false);
+    const struct = WMSParser.bitsToStructure(decryptedBits);
+    const score = scoreDecodedStruct(struct);
+    return { clean, struct, score, useEuSwap };
+  } catch (error) {
+    return null;
+  }
+}
+
+function detectWonderMailCode(code) {
+  const preferredEu = !!document.getElementById('useEUswap')?.checked;
+  const candidates = [
+    decodeWonderMailCandidate(code, true),
+    decodeWonderMailCandidate(code, false)
+  ].filter(Boolean);
+
+  if (!candidates.length) return null;
+
+  candidates.sort((left, right) => {
+    if (right.score !== left.score) return right.score - left.score;
+    if (left.useEuSwap === preferredEu) return -1;
+    if (right.useEuSwap === preferredEu) return 1;
+    return 0;
+  });
+
+  return candidates[0] && candidates[0].score >= 25 ? candidates[0] : null;
+}
+
+function mergeMissionTypeData(typeIndex, subtypeIndex) {
+  const base = WMSGenData.missionTypes[typeIndex];
+  if (!base) return null;
+  if (!base.subTypes || !Number.isFinite(subtypeIndex)) return base;
+  const subtype = base.subTypes[subtypeIndex];
+  return subtype ? { ...base, ...subtype } : base;
+}
+
+function findMissionSelectionForStruct(struct) {
+  for (let typeIndex = 0; typeIndex < WMSGenData.missionTypes.length; typeIndex += 1) {
+    const type = WMSGenData.missionTypes[typeIndex];
+    if (!type || type.mainType !== struct.missionType) continue;
+
+    if (Array.isArray(type.subTypes) && type.subTypes.length) {
+      for (let subtypeIndex = 0; subtypeIndex < type.subTypes.length; subtypeIndex += 1) {
+        const merged = mergeMissionTypeData(typeIndex, subtypeIndex);
+        if (merged.specialType !== struct.missionSpecial) continue;
+        if (Object.prototype.hasOwnProperty.call(merged, 'forceClient') && merged.forceClient !== struct.client) continue;
+        if (Object.prototype.hasOwnProperty.call(merged, 'forceTarget') && merged.forceTarget !== struct.target) continue;
+        return { typeIndex, subtypeIndex };
+      }
+    }
+
+    if ((type.specialType || 0) === struct.missionSpecial) {
+      return { typeIndex, subtypeIndex: null };
+    }
+  }
+
+  return null;
+}
+
+function splitTrueMonId(monId) {
+  const numeric = parseInt(monId, 10);
+  if (!Number.isFinite(numeric)) return null;
+  if (numeric === WMSGenData.NIDORAN_FEMALE) {
+    return { baseId: WMSGenData.NIDORAN_FEMALE, female: true };
+  }
+  if (numeric === WMSGenData.NIDORAN_MALE) {
+    return { baseId: WMSGenData.NIDORAN_MALE, female: false };
+  }
+  if (numeric >= 600) {
+    return { baseId: numeric - 600, female: true };
+  }
+  return { baseId: numeric, female: false };
+}
+
+function applyPokemonToField(selectId, femaleId, monId) {
+  const select = document.getElementById(selectId);
+  const checkbox = femaleId ? document.getElementById(femaleId) : null;
+  const split = splitTrueMonId(monId);
+  if (!select || !split || split.baseId <= 0) return;
+
+  ensureSelectOption(select, split.baseId, getLocalizedPokemonName(monId));
+  setSelectByValue(select, split.baseId);
+  if (checkbox) {
+    checkbox.checked = !!split.female;
+  }
+}
+
+function applyItemToField(selectId, itemId) {
+  const select = document.getElementById(selectId);
+  if (!select) return;
+  const numeric = parseInt(itemId, 10);
+  if (!Number.isFinite(numeric)) return;
+  ensureSelectOption(select, numeric, getItemDisplayName(numeric, WMSkyItem[numeric] || String(numeric)));
+  setSelectByValue(select, numeric);
+}
+
+function importDecodedStruct(result) {
+  const typeSelect = document.getElementById('missionTypeBox');
+  const subSelect = document.getElementById('missionSubTypeBox');
+  const dungeonSelect = document.getElementById('dungeonBox');
+  const floorInput = document.getElementById('floor');
+  const specialFloorInput = document.getElementById('specialFloor');
+  const rewardTypeSelect = document.getElementById('rewardTypeBox');
+  const euToggle = document.getElementById('useEUswap');
+  const output = document.getElementById('outputbox');
+  const compact = document.getElementById('compactOutput');
+  const rawFlavor = document.getElementById('flavorText');
+  const struct = result.struct;
+
+  let missionMapped = false;
+  const missionSelection = findMissionSelectionForStruct(struct);
+  if (missionSelection && typeSelect) {
+    ensureSelectOption(typeSelect, missionSelection.typeIndex, getMissionTypeDisplayName(missionSelection.typeIndex));
+    setSelectByValue(typeSelect, missionSelection.typeIndex);
+    WMSGen.fillSubTypeList();
+    if (Number.isFinite(missionSelection.subtypeIndex) && subSelect) {
+      ensureSelectOption(subSelect, missionSelection.subtypeIndex, getMissionSubtypeDisplayName(missionSelection.typeIndex, missionSelection.subtypeIndex));
+      setSelectByValue(subSelect, missionSelection.subtypeIndex);
+    }
+    missionMapped = true;
+  }
+
+  if (euToggle) {
+    euToggle.checked = !!result.useEuSwap;
+  }
+
+  if (dungeonSelect) {
+    ensureSelectOption(dungeonSelect, struct.dungeon, getLocalizedDungeonName(struct.dungeon, WMSkyDungeon[struct.dungeon] || String(struct.dungeon)));
+    setSelectByValue(dungeonSelect, struct.dungeon);
+  }
+  if (floorInput && Number.isFinite(struct.floor)) {
+    floorInput.value = String(struct.floor);
+  }
+  if (specialFloorInput) {
+    specialFloorInput.value = Number.isFinite(struct.specialFloor) && struct.specialFloor > 0 ? String(struct.specialFloor) : '';
+  }
+  if (rewardTypeSelect) {
+    ensureSelectOption(rewardTypeSelect, struct.rewardType, textOfSelected('rewardTypeBox') || String(struct.rewardType));
+    setSelectByValue(rewardTypeSelect, struct.rewardType);
+  }
+
+  applyPokemonToField('clientBox', 'clientF', struct.client);
+  applyPokemonToField('targetBox', 'targetF', struct.target);
+  applyPokemonToField('target2Box', 'target2F', struct.target2);
+  applyItemToField('targetItemBox', struct.targetItem);
+  applyItemToField('rewardItemBox', struct.reward);
+
+  if (rawFlavor) {
+    rawFlavor.value = Number.isFinite(struct.flavorText) ? String(struct.flavorText) : '';
+  }
+
+  WMSGen.update();
+  syncDungeonFloorLimit();
+  syncMemoSelectorFromSpecialFloor();
+  refreshMissionUi();
+  updateSummary();
+  updateMemoVisuals();
+
+  if (output) {
+    output.value = prettyMailString(result.clean, 2, 7);
+  }
+  if (compact) {
+    compact.value = result.clean;
+  }
+
+  return missionMapped;
+}
+
+const FLAVOR_TEXT_PRESET_CUSTOM = '__custom__';
+const FLAVOR_TEXT_PRESET_AUTO = '__auto__';
+
+const FLAVOR_TEXT_CHOICES = [
+  {
+    id: 'explore-sealed',
+    value: '1',
+    match: (typeData) => !!typeData && typeData.mainType === 3 && typeData.specialType === 1,
+    head: {
+      fr: 'Le mystere de la Chambre Scellee...',
+      en: 'The mystery of the Sealed Chamber...'
+    },
+    body: {
+      fr: "Il y a une Chambre Scellee la-dedans ! Viens percer ce mystere avec moi !",
+      en: "There's a Sealed Chamber in there! Someone crack that mystery with me!"
+    }
+  },
+  {
+    id: 'explore-golden',
+    value: '2',
+    match: (typeData) => !!typeData && typeData.mainType === 3 && typeData.specialType === 2,
+    head: {
+      fr: 'Allons trouver la Chambre Doree !',
+      en: "Let's find the Golden Chamber!"
+    },
+    body: {
+      fr: "On dit que la Chambre Doree est remplie de tresors ! Allons la chercher ensemble !",
+      en: "The Golden Chamber's supposed to be full of treasure! Let's team up and look for it!"
+    }
+  },
+  {
+    id: 'explore-new-dungeon',
+    value: '3',
+    match: (typeData) => !!typeData && typeData.mainType === 3 && typeData.specialType === 3,
+    head: {
+      fr: 'Un nouveau donjon a ete decouvert !',
+      en: 'A new dungeon was discovered!'
+    },
+    body: {
+      fr: "Un nouveau donjon serait apparu. Allons verifier ca ensemble !",
+      en: "A new dungeon may have appeared. Let's check it out together!"
+    }
+  },
+  {
+    id: 'find-item-evolve',
+    value: '2',
+    match: (typeData) => !!typeData && typeData.mainType === 6,
+    head: {
+      fr: "Il me faut cet objet pour evoluer !",
+      en: 'I need this item to evolve!'
+    },
+    body: {
+      fr: "J'ai desesperement besoin de cet objet pour evoluer ! Quelqu'un peut me l'apporter ?",
+      en: 'I desperately need this item to evolve! Could someone bring it to me?'
+    }
+  },
+  {
+    id: 'find-item-gabite-scale',
+    value: '4',
+    match: (typeData) => !!typeData && typeData.mainType === 6,
+    head: {
+      fr: 'Rapportez-moi une Gabite Scale !',
+      en: 'Please bring me a Gabite Scale!'
+    },
+    body: {
+      fr: "Quelqu'un pourrait me rapporter une Gabite Scale ?",
+      en: 'Could someone bring back a Gabite Scale for me?'
+    }
+  },
+  {
+    id: 'outlaw-hidden',
+    value: '1',
+    match: (typeData) => !!typeData && typeData.mainType === 9 && typeData.specialType === 1,
+    head: {
+      fr: 'La cible est cachee.',
+      en: 'The target is hidden.'
+    },
+    body: {
+      fr: "La cible se cache quelque part. Aide-moi a la retrouver.",
+      en: 'The target is hiding somewhere. Help me track it down.'
+    }
+  },
+  {
+    id: 'outlaw-fleeing',
+    value: '2',
+    match: (typeData) => !!typeData && typeData.mainType === 9 && typeData.specialType === 2,
+    head: {
+      fr: 'La cible prend la fuite !',
+      en: 'The target is on the run!'
+    },
+    body: {
+      fr: "La cible s'enfuit sans arret. Il faut l'attraper vite !",
+      en: 'The target keeps running away. We need to catch it quickly!'
+    }
+  },
+  {
+    id: 'arrest-normal',
+    value: '0',
+    match: (typeData) => !!typeData && typeData.mainType === 10 && typeData.specialType === 0,
+    head: {
+      fr: 'Allons arreter la cible.',
+      en: "Let's arrest the target."
+    },
+    body: {
+      fr: "C'est un vrai probleme. Allons le capturer ensemble !",
+      en: "They're a real problem. Let's capture them together!"
+    }
+  },
+  {
+    id: 'arrest-escort',
+    value: '4',
+    match: (typeData) => !!typeData && typeData.mainType === 10 && typeData.specialType === 4,
+    head: {
+      fr: 'Jusqu a la cible !',
+      en: 'Take me to the target!'
+    },
+    body: {
+      fr: "Je veux absolument y aller ! Escorte-moi jusque-la !",
+      en: 'I really want to go there! Please escort me there!'
+    }
+  },
+  {
+    id: 'arrest-special-floor',
+    value: '6',
+    match: (typeData) => !!typeData && typeData.mainType === 10 && typeData.specialType === 6,
+    head: {
+      fr: 'La cible se cache a un etage special.',
+      en: 'The target is on a special floor.'
+    },
+    body: {
+      fr: "On a repere la cible a un etage special. Va l'arreter !",
+      en: 'The target was spotted on a special floor. Go arrest them!'
+    }
+  },
+  {
+    id: 'arrest-monster-house',
+    value: '7',
+    match: (typeData) => !!typeData && typeData.mainType === 10 && typeData.specialType === 7,
+    head: {
+      fr: 'La cible est dans une Maison de monstres !',
+      en: 'The target is in a Monster House!'
+    },
+    body: {
+      fr: "La cible s'est retranchee dans une Maison de monstres. Bon courage !",
+      en: "The target is holed up in a Monster House. Good luck!"
+    }
+  },
+  {
+    id: 'challenge-mewtwo',
+    value: '1',
+    match: (typeData) => !!typeData && typeData.mainType === 11 && typeData.specialType === 1,
+    head: {
+      fr: 'Lettre de defi : Mewtwo',
+      en: 'Challenge Letter: Mewtwo'
+    },
+    body: {
+      fr: 'Une lettre de defi de Mewtwo. Prepare-toi au combat.',
+      en: 'A challenge letter from Mewtwo. Prepare for battle.'
+    }
+  },
+  {
+    id: 'challenge-entei',
+    value: '2',
+    match: (typeData) => !!typeData && typeData.mainType === 11 && typeData.specialType === 2,
+    head: {
+      fr: 'Lettre de defi : Entei',
+      en: 'Challenge Letter: Entei'
+    },
+    body: {
+      fr: 'Une lettre de defi d Entei. Prepare-toi au combat.',
+      en: 'A challenge letter from Entei. Prepare for battle.'
+    }
+  },
+  {
+    id: 'challenge-raikou',
+    value: '3',
+    match: (typeData) => !!typeData && typeData.mainType === 11 && typeData.specialType === 3,
+    head: {
+      fr: 'Lettre de defi : Raikou',
+      en: 'Challenge Letter: Raikou'
+    },
+    body: {
+      fr: 'Une lettre de defi de Raikou. Prepare-toi au combat.',
+      en: 'A challenge letter from Raikou. Prepare for battle.'
+    }
+  },
+  {
+    id: 'challenge-suicune',
+    value: '4',
+    match: (typeData) => !!typeData && typeData.mainType === 11 && typeData.specialType === 4,
+    head: {
+      fr: 'Lettre de defi : Suicune',
+      en: 'Challenge Letter: Suicune'
+    },
+    body: {
+      fr: 'Une lettre de defi de Suicune. Prepare-toi au combat.',
+      en: 'A challenge letter from Suicune. Prepare for battle.'
+    }
+  },
+  {
+    id: 'challenge-jirachi',
+    value: '5',
+    match: (typeData) => !!typeData && typeData.mainType === 11 && typeData.specialType === 5,
+    head: {
+      fr: 'Lettre de defi : Jirachi',
+      en: 'Challenge Letter: Jirachi'
+    },
+    body: {
+      fr: 'Une lettre de defi de Jirachi. Prepare-toi au combat.',
+      en: 'A challenge letter from Jirachi. Prepare for battle.'
+    }
+  }
+];
+
+function getFlavorTextChoiceLabel(entry, field) {
+  const lang = getCurrentLanguage();
+  return (entry && entry[field] && (entry[field][lang] || entry[field].fr || entry[field].en)) || '';
+}
+
+function getFlavorTextPresetEntries(typeData) {
+  return FLAVOR_TEXT_CHOICES.filter((entry) => entry.match(typeData));
+}
+
+function setFlavorTextCustomVisibility(visible) {
+  const wrap = document.getElementById('flavorTextCustomWrap');
+  if (!wrap) return;
+  wrap.classList.toggle('hidden', !visible);
+}
+
+function updateFlavorTextBodyOptions(entry) {
+  const bodySelect = document.getElementById('flavorTextBody');
+  if (!bodySelect) return;
+
+  bodySelect.innerHTML = '';
+  const option = document.createElement('option');
+  option.value = entry ? entry.id : FLAVOR_TEXT_PRESET_AUTO;
+  option.textContent = entry ? getFlavorTextChoiceLabel(entry, 'body') : t('flavorTextBodyAuto');
+  bodySelect.add(option);
+  bodySelect.disabled = false;
+}
+
+function applyFlavorTextPresetSelection() {
+  const headSelect = document.getElementById('flavorTextHead');
+  const input = document.getElementById('flavorText');
+  if (!headSelect || !input) return;
+
+  const entries = getFlavorTextPresetEntries(getCurrentTypeData());
+  const entry = entries.find((candidate) => candidate.id === headSelect.value) || null;
+
+  if (headSelect.value === FLAVOR_TEXT_PRESET_CUSTOM) {
+    setFlavorTextCustomVisibility(true);
+    updateFlavorTextBodyOptions(null);
+    return;
+  }
+
+  setFlavorTextCustomVisibility(false);
+  if (entry) {
+    input.value = entry.value;
+    updateFlavorTextBodyOptions(entry);
+  } else {
+    input.value = '';
+    updateFlavorTextBodyOptions(null);
+  }
+}
+
+function refreshFlavorTextPresetOptions() {
+  const headSelect = document.getElementById('flavorTextHead');
+  const bodySelect = document.getElementById('flavorTextBody');
+  const input = document.getElementById('flavorText');
+  const hint = document.getElementById('flavorTextChoiceHint');
+  if (!headSelect || !bodySelect || !input) return;
+
+  const currentValue = input.value.trim();
+  const entries = getFlavorTextPresetEntries(getCurrentTypeData());
+  const matchingEntry = entries.find((entry) => entry.value === currentValue) || null;
+
+  headSelect.innerHTML = '';
+
+  const autoOption = document.createElement('option');
+  autoOption.value = FLAVOR_TEXT_PRESET_AUTO;
+  autoOption.textContent = t('flavorTextHeadAuto');
+  headSelect.add(autoOption);
+
+  entries.forEach((entry) => {
+    const option = document.createElement('option');
+    option.value = entry.id;
+    option.textContent = getFlavorTextChoiceLabel(entry, 'head');
+    headSelect.add(option);
+  });
+
+  const customOption = document.createElement('option');
+  customOption.value = FLAVOR_TEXT_PRESET_CUSTOM;
+  customOption.textContent = t('flavorTextHeadCustom');
+  headSelect.add(customOption);
+
+  if (currentValue === '') {
+    headSelect.value = FLAVOR_TEXT_PRESET_AUTO;
+  } else if (matchingEntry) {
+    headSelect.value = matchingEntry.id;
+  } else {
+    headSelect.value = FLAVOR_TEXT_PRESET_CUSTOM;
+  }
+
+  if (hint) {
+    hint.textContent = entries.length
+      ? t('flavorTextChoiceHintKnown')
+      : t('flavorTextChoiceHintNone');
+  }
+
+  applyFlavorTextPresetSelection();
+}
+
+function syncFlavorTextPresetFromInput() {
+  refreshFlavorTextPresetOptions();
 }
 
 function getKnownItemTitle(itemId, label) {
@@ -1022,8 +1592,11 @@ function applyStaticTranslations() {
   setText('#memoSelectorWrap > label', t('memoSelectorLabel'));
   setText('#memoSelectorWrap > .hint', t('memoHint'));
   setText('.advanced-panel > summary', t('advancedOptions'));
-  setText('label[for="flavorText"]', t('flavorTextLabel'));
-  setPlaceholder('#flavorText', t('flavorTextPlaceholder'));
+  setText('label[for="flavorTextHead"]', t('flavorTextHeadLabel'));
+  setText('label[for="flavorTextBody"]', t('flavorTextBodyLabel'));
+  setText('label[for="flavorText"]', t('flavorTextCustomLabel'));
+  setPlaceholder('#flavorText', t('flavorTextCustomPlaceholder'));
+  setText('#flavorTextCustomHint', t('flavorTextCustomHint'));
   setText('label[for="specialFloor"]', t('specialFloorLabel'));
   setPlaceholder('#specialFloor', t('specialFloorPlaceholder'));
   setText('#specialFloor + .hint', t('specialFloorHint'));
@@ -1065,6 +1638,10 @@ function applyStaticTranslations() {
   const memoBottomHint = document.querySelector('#memoVisuals > .hint');
   if (memoBottomHint) memoBottomHint.textContent = t('memoHintBottom');
 
+  setText('label[for="importCode"]', t('importCodeLabel'));
+  setPlaceholder('#importCode', t('importCodePlaceholder'));
+  setText('#importCodeBtn', t('importCodeButton'));
+
   setText('.result-card h2', t('resultTitle'));
   setText('#generateBtn', t('generate'));
   setText('#copyPrettyBtn', t('copy'));
@@ -1094,6 +1671,7 @@ function applyStaticTranslations() {
   const sourceParagraphs = document.querySelectorAll('.sources-block p');
   if (sourceParagraphs[0]) sourceParagraphs[0].innerHTML = t('creditsBody1');
   if (sourceParagraphs[1]) sourceParagraphs[1].innerHTML = t('creditsBody2');
+  if (sourceParagraphs[2]) sourceParagraphs[2].innerHTML = t('creditsBody3');
 
   setText('.footer p', t('footerText'));
   updateLanguagePicker();
@@ -1107,6 +1685,7 @@ function relabelLocalizedControls() {
   ['clientBox', 'targetBox', 'target2Box'].forEach(relabelPokemonSelect);
   ['targetItemBox', 'rewardItemBox'].forEach(relabelItemSelect);
   relabelMemoSelectorOptions();
+  refreshFlavorTextPresetOptions();
 }
 
 function applyLanguage(nextLanguage) {
@@ -1889,6 +2468,7 @@ onReady(() => {
   relabelItemSelect('rewardItemBox');
   document.getElementById('useEUswap').checked = true;
   populateMemoSelector();
+  refreshFlavorTextPresetOptions();
 
   const watchedIds = [
     'missionTypeBox', 'missionSubTypeBox', 'dungeonBox', 'floor', 'clientBox', 'clientF',
@@ -1903,7 +2483,13 @@ onReady(() => {
       if (id === 'missionTypeBox') {
         WMSGen.fillSubTypeList();
       }
+      if (id === 'flavorText') {
+        syncFlavorTextPresetFromInput();
+      }
       WMSGen.update();
+      if (id === 'missionTypeBox' || id === 'missionSubTypeBox') {
+        refreshFlavorTextPresetOptions();
+      }
 
       const typeData = getCurrentTypeData();
       const memoWrap = document.getElementById('memoSelectorWrap');
@@ -1919,6 +2505,9 @@ onReady(() => {
       updateMemoVisuals();
     });
     node.addEventListener('input', () => {
+      if (id === 'flavorText') {
+        syncFlavorTextPresetFromInput();
+      }
       if (id === 'specialFloor') {
         syncMemoSelectorFromSpecialFloor();
       }
@@ -1936,6 +2525,12 @@ onReady(() => {
     updateMemoVisuals();
   });
 
+  document.getElementById('flavorTextHead')?.addEventListener('change', () => {
+    applyFlavorTextPresetSelection();
+    refreshMissionUi();
+    updateSummary();
+  });
+
   document.querySelectorAll('.searchbox').forEach((input) => {
     const select = document.getElementById(input.dataset.target);
     input.addEventListener('input', () => scrollSearchToOption(input, select));
@@ -1946,6 +2541,7 @@ onReady(() => {
   });
 
   document.getElementById('generateBtn').addEventListener('click', generateCode);
+  document.getElementById('importCodeBtn')?.addEventListener('click', importCode);
   document.getElementById('copyPrettyBtn').addEventListener('click', () => copyFrom('outputbox'));
   document.getElementById('copyCompactBtn').addEventListener('click', () => copyFrom('compactOutput'));
 
@@ -1953,6 +2549,7 @@ onReady(() => {
   WMSGen.update();
   document.getElementById('memoSelectorWrap').classList.add('hidden');
   syncMemoSelectorFromSpecialFloor();
+  refreshFlavorTextPresetOptions();
   refreshMissionUi();
   updateSummary();
   updateMemoVisuals();
@@ -2430,6 +3027,29 @@ function generateCode() {
   status.textContent = document.getElementById('useEUswap').checked ? t('generatedEu') : t('generatedUs');
 }
 
+function importCode() {
+  const input = document.getElementById('importCode');
+  const status = document.getElementById('statusLine');
+  if (!input || !status) return;
+
+  const raw = input.value.trim();
+  if (!raw) {
+    status.textContent = t('importCodeEmpty');
+    return;
+  }
+
+  const decoded = detectWonderMailCode(raw);
+  if (!decoded) {
+    status.textContent = t('importCodeInvalid');
+    return;
+  }
+
+  const fullyMapped = importDecodedStruct(decoded);
+  status.textContent = fullyMapped
+    ? (decoded.useEuSwap ? t('importCodeEu') : t('importCodeUs'))
+    : t('importCodePartial');
+}
+
 async function copyFrom(id) {
   const el = document.getElementById(id);
   const status = document.getElementById('statusLine');
@@ -2702,6 +3322,7 @@ function applyPreset(kind) {
     relabelMissionTypeSelect();
     relabelMissionSubTypeSelect();
     WMSGen.update();
+    refreshFlavorTextPresetOptions();
     document.getElementById('memoSelectorWrap').classList.toggle('hidden', kind !== 'memo');
     syncMemoSelectorFromSpecialFloor();
     refreshMissionUi();
@@ -2736,6 +3357,7 @@ onReady(() => {
   document.getElementById('missionTypeBox')?.addEventListener('change', () => {
     relabelMissionTypeSelect();
     relabelMissionSubTypeSelect();
+    refreshFlavorTextPresetOptions();
     updateSummary();
   });
 
